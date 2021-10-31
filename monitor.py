@@ -3,11 +3,12 @@ import subprocess
 import datetime
 import json
 import requests
+import time
 
 from settings import *
 
 
-def main():
+def do_monitor():
     res = subprocess.run(["cat", "/sys/class/thermal/thermal_zone0/temp"], stdout=subprocess.PIPE)
     print(res)
     if res.returncode == 0:
@@ -38,4 +39,8 @@ def gas_post(data):
 
 
 if __name__ == "__main__":
-    main()
+    print("BEGIN monitor")
+    while True:
+        do_monitor()
+        print("sleep 60sec")
+        time.sleep(60)
