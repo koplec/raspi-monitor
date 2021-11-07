@@ -1,0 +1,11 @@
+[Unit]
+Description = monitor-raspi
+
+[Service]
+ExecStart=/usr/bin/python3 /home/ubuntu/apps/monitor-raspi/monitor.py
+Restart=no
+Type=simple
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

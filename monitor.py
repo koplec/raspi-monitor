@@ -40,7 +40,4 @@ def gas_post(data):
 
 if __name__ == "__main__":
     print("BEGIN monitor")
-    while True:
-        do_monitor()
-        print("sleep 60sec")
-        time.sleep(60)
+    do_monitor()
